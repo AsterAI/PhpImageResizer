@@ -1,6 +1,6 @@
 <?php
 /**
-*  author : AsterAI Alexandr Baranezky
+*  author :  Alexandr Baranezky aka AsterAI
 */
 class SimpleImage {
  
