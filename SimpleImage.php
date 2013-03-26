@@ -32,7 +32,7 @@ class SimpleImage {
                     $image_type = IMAGETYPE_JPEG ; 
                 break; 
 
-            case "png" :  
+            case "gif" :  
                     $image_type = IMAGETYPE_GIF ; 
                 break; 
             case "png" :  
