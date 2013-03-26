@@ -1,4 +1,7 @@
 <?php
+/**
+*  author : AsterAI Alexandr Baranezky
+*/
 class SimpleImage {
  
    var $image;
@@ -20,7 +23,7 @@ class SimpleImage {
    function save($filename, $image_type=  SimpleImage::IMAGE_TYPE_AUTO, $compression=75, $permissions=null) {
      $image_type = IMAGETYPE_PNG ; 
        if($image_type == SimpleImage::IMAGE_TYPE_AUTO) {
-         //Подготовка расширения файла
+         //Preparing file extension
         $parts = explode(".", $filename);
         $ext = end($parts) ; 
         switch (strtolower($ext)) {
@@ -72,8 +75,8 @@ class SimpleImage {
    }
    
    /**
-    * Изменяет размер по высоте соблюдая пропорции
-    * @param int $height - новая высота
+    * Changed size of image by height
+    * @param int $height - New Height
     */
    function resizeToHeight($height) {
       $ratio = $height / $this->getHeight();
@@ -82,8 +85,8 @@ class SimpleImage {
    }
     
    /**
-    * Изменяет размер по ширине соблюдая пропорции
-    * @param int $width - новая нирина
+    * Changed size of image by width
+    * @param int $width -New width
     */
    function resizeToWidth($width) {
       $ratio = $width / $this->getWidth();
@@ -99,8 +102,11 @@ class SimpleImage {
    
    function resize($width,$height) {
       $new_image = imagecreatetruecolor($width, $height);
+      
+      //Create image with transparent background
       imageAlphaBlending($new_image, false);
       imageSaveAlpha($new_image, true);
+      
       imagecopyresampled($new_image, $this->image, 0, 0, 0, 0, $width, $height, $this->getWidth(), $this->getHeight());
       $this->image = $new_image;
    }
